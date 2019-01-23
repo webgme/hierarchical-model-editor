@@ -24,9 +24,8 @@ import ReactCytoscape from './ReactCytoscape';
 import ContextMenu from './ContextMenu';
 import FilterSelector from './FilterSelector';
 
-import DCRYPPS_CONSTANTS from '../../../../../common/CONSTANTS';
+import CONSTANTS from '../../../../../common/CONSTANTS';
 
-const CONSTANTS = DCRYPPS_CONSTANTS.VISUALIZATION;
 const ATTACK_MODEL_NODES = ['goal', 'or', 'plan', 'action'];
 
 const DEFAULT_STYLES = [
@@ -48,60 +47,60 @@ const DEFAULT_STYLES = [
             'background-height': '80%',
         },
     },
-    {
-        selector: 'node[attackModelNode]',
-        style: {
-            content: 'data(label)',
-            // http://js.cytoscape.org/#style/background-image
-            'background-width': '80%',
-            'background-height': '80%',
-            shape: 'roundrectangle',
-            'background-color': 'white',
-            'border-style': 'solid',
-            'border-opacity': '1',
-            'border-width': '3px',
-            'text-wrap': 'wrap',
-            'text-valign': 'center',
-            'text-halign': 'center',
-            width: '320px',
-            height: '100px',
-            'font-family': 'monospace',
-        },
-    },
-    {
-        selector: 'node[metaType="goal"]',
-        style: {
-            'border-color': 'blue',
-        },
-    },
-    {
-        selector: 'node[metaType="action"]',
-        style: {
-            'border-color': 'red',
-        },
-    },
-    {
-        selector: 'node[metaType="plan"]',
-        style: {
-            'border-color': 'green',
-            width: '200px',
-        },
-    },
-    {
-        selector: 'node[metaType="or"]',
-        style: {
-            label: 'or',
-            width: '30px',
-            height: '30px',
-            'border-color': 'grey',
-        },
-    },
-    {
-        selector: `.${DCRYPPS_CONSTANTS.SETS.networkNodes}-edge`,
-        style: {
-            'line-style': 'dashed',
-        },
-    },
+    // {
+    //     selector: 'node[attackModelNode]',
+    //     style: {
+    //         content: 'data(label)',
+    //         // http://js.cytoscape.org/#style/background-image
+    //         'background-width': '80%',
+    //         'background-height': '80%',
+    //         shape: 'roundrectangle',
+    //         'background-color': 'white',
+    //         'border-style': 'solid',
+    //         'border-opacity': '1',
+    //         'border-width': '3px',
+    //         'text-wrap': 'wrap',
+    //         'text-valign': 'center',
+    //         'text-halign': 'center',
+    //         width: '320px',
+    //         height: '100px',
+    //         'font-family': 'monospace',
+    //     },
+    // },
+    // {
+    //     selector: 'node[metaType="goal"]',
+    //     style: {
+    //         'border-color': 'blue',
+    //     },
+    // },
+    // {
+    //     selector: 'node[metaType="action"]',
+    //     style: {
+    //         'border-color': 'red',
+    //     },
+    // },
+    // {
+    //     selector: 'node[metaType="plan"]',
+    //     style: {
+    //         'border-color': 'green',
+    //         width: '200px',
+    //     },
+    // },
+    // {
+    //     selector: 'node[metaType="or"]',
+    //     style: {
+    //         label: 'or',
+    //         width: '30px',
+    //         height: '30px',
+    //         'border-color': 'grey',
+    //     },
+    // },
+    // {
+    //     selector: `.${DCRYPPS_CONSTANTS.SETS.networkNodes}-edge`,
+    //     style: {
+    //         'line-style': 'dashed',
+    //     },
+    // },
     {
         selector: '.edge-with-arrow',
         style: {
@@ -109,49 +108,49 @@ const DEFAULT_STYLES = [
             'target-arrow-color': 'grey',
         },
     },
+    // {
+    //     selector: `.${DCRYPPS_CONSTANTS.SETS.sequence}-edge`,
+    //     style: {
+    //         'mid-target-arrow-shape': 'vee',
+    //         label: 'data(label)',
+    //         color: 'green',
+    //         'font-size': '12px',
+    //         'font-weight': 'bold',
+    //     },
+    // },
+    // {
+    //     selector: `.${DCRYPPS_CONSTANTS.SETS.parallel}-edge`,
+    //     style: {
+    //         'mid-target-arrow-shape': 'triangle-tee',
+    //     },
+    // },
+    // {
+    //     selector: `.${DCRYPPS_CONSTANTS.SETS.choose}-edge`,
+    //     style: {
+    //         'mid-target-arrow-shape': 'triangle',
+    //         'mid-source-arrow-shape': 'circle',
+    //     },
+    // },
     {
-        selector: `.${DCRYPPS_CONSTANTS.SETS.sequence}-edge`,
-        style: {
-            'mid-target-arrow-shape': 'vee',
-            label: 'data(label)',
-            color: 'green',
-            'font-size': '12px',
-            'font-weight': 'bold',
-        },
-    },
-    {
-        selector: `.${DCRYPPS_CONSTANTS.SETS.parallel}-edge`,
-        style: {
-            'mid-target-arrow-shape': 'triangle-tee',
-        },
-    },
-    {
-        selector: `.${DCRYPPS_CONSTANTS.SETS.choose}-edge`,
-        style: {
-            'mid-target-arrow-shape': 'triangle',
-            'mid-source-arrow-shape': 'circle',
-        },
-    },
-    {
-        selector: '.pre-edge',
-        style: {
-            width: 1,
-            'line-color': 'rgb(85, 123, 139)',
-            'mid-source-arrow-fill': 'filled',
-            'mid-source-arrow-color': 'rgb(85, 123, 139)',
-            'mid-source-arrow-shape': 'triangle',
-        },
-    },
-    {
-        selector: '.post-edge',
+        selector: '.base-edge',
         style: {
             width: 1,
-            'line-color': 'rgb(85, 123, 139)',
-            'mid-target-arrow-fill': 'filled',
-            'mid-target-arrow-color': 'rgb(85, 123, 139)',
-            'mid-target-arrow-shape': 'triangle',
+            'line-color': 'rgb(220,20,60)',
+            'target-arrow-fill': 'hollow',
+            'target-arrow-color': 'rgb(220,20,60)',
+            'target-arrow-shape': 'triangle',
         },
     },
+    // {
+    //     selector: '.post-edge',
+    //     style: {
+    //         width: 1,
+    //         'line-color': 'rgb(85, 123, 139)',
+    //         'mid-target-arrow-fill': 'filled',
+    //         'mid-target-arrow-color': 'rgb(85, 123, 139)',
+    //         'mid-target-arrow-shape': 'triangle',
+    //     },
+    // },
     {
         selector: 'node[hasChildren].in-active-selection',
         style: {
@@ -167,13 +166,13 @@ const DEFAULT_STYLES = [
             'background-color': 'rgba(82, 168, 236, 0.6)',
         },
     },
-    {
-        selector: 'edge.in-active-selection',
-        style: {
-            width: 5,
-            'line-color': 'rgba(82, 168, 236, 0.6)',
-        },
-    },
+    // {
+    //     selector: 'edge.in-active-selection',
+    //     style: {
+    //         width: 5,
+    //         'line-color': 'rgba(82, 168, 236, 0.6)',
+    //     },
+    // },
 ];
 
 const coseBilkentOptions = {
@@ -597,19 +596,19 @@ ${activeSelection.includes(edgeId) ? 'in-active-selection' : ''}`,
                                 <TransformIcon/>
                             </Button>
                         </Tooltip>
-                        {/*<Tooltip id="tooltip-dagre-layout" title="Run Dagre-layout. Warning this will move everything!">*/}
-                            {/*<Button*/}
-                                {/*onClick={() => {*/}
-                                    {/*const layout = this.cy.layout({name: 'dagre'});*/}
-                                    {/*layout.on('layoutstop', () => {*/}
-                                        {/*this.storePosition(activeNode);*/}
-                                    {/*});*/}
-                                    {/*layout.run();*/}
-                                {/*}}*/}
-                            {/*>*/}
-                                {/*<TransformIcon/>*/}
-                            {/*</Button>*/}
-                        {/*</Tooltip>*/}
+                        <Tooltip id="tooltip-dagre-layout" title="Run Dagre-layout. Warning this will move everything!">
+                            <Button
+                                onClick={() => {
+                                    const layout = this.cy.layout({name: 'dagre'});
+                                    layout.on('layoutstop', () => {
+                                        this.storePosition(activeNode);
+                                    });
+                                    layout.run();
+                                }}
+                            >
+                                <TransformIcon/>
+                            </Button>
+                        </Tooltip>
                         <Tooltip id="tooltip-fit-to-screen" title="Fit to screen">
                             <Button
                                 onClick={() => {

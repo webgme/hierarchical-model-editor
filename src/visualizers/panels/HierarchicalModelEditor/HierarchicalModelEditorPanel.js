@@ -13,15 +13,15 @@ define([
     'js/PanelManager/IActivePanel',
     'common/util/guid',
     'js/DragDrop/DropTarget',
-    './HierarchicalModelEditorPanel.bundle',
-    'css!./HierarchicalModelEditorPanel.bundle.css',
+    './HierarchicalModelEditor.bundle',
+    'css!./HierarchicalModelEditor.bundle.css',
 ], function (
     CONSTANTS,
     PanelBase,
     IActivePanel,
     guid,
     DropTarget,
-    dcryppsViz,
+    HierarchicalModelEditorViz,
 ) {
     'use strict';
     const WebGMEReactPanels = {};
@@ -124,7 +124,7 @@ define([
 
     HierarchicalModelEditorPanel.prototype.afterAppend = function afterAppend() {
         const self = this;
-        dcryppsViz(this.appId);
+        HierarchicalModelEditorViz(this.appId);
         DropTarget.makeDroppable(this.$el, {
             drop: function drop(event, dragInfo) {
                 // console.log(event, dragInfo);

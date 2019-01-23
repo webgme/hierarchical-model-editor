@@ -14,7 +14,7 @@ import {createStore} from 'redux';
 
 import reducers from './containers/reducers';
 import {setActiveNode, setActiveSelection, setIsActivePanel, setReadOnly, setPanelSize} from './containers/actions';
-import DcryppsViz from './containers/DcryppsViz';
+import HierarchicalModelEditorViz from './containers/HierarchicalModelEditor';
 import GraphEditor from './components/GraphEditor';
 import CONSTANTS from '../../../../common/CONSTANTS';
 
@@ -24,9 +24,9 @@ const OPTIONS = {
     // Array of registries to extract
     registryNames: ['position', CONSTANTS.CYTOSCAPE_POS_REG_KEY, 'SVGIcon'],
     // Array of pointer names to extract - default is all defined pointers (nodeObj.getSetNames).
-    pointerNames: [],
+    // pointerNames: ['src', 'dst'],
     // Array of set names to extract as edges - default is all defined sets (nodeObj.getSetNames).
-    setNames: [],
+    // setNames: ['myset'],
     // Mapping from set name to set attribute name - is label: true it will be used as label for those edges.
     setMemberAttributes: {},
     // The depth of the territory, i.e. the number of levels of containment-hierarchy to display.
@@ -36,15 +36,11 @@ const OPTIONS = {
 const FILTERS = {
     pointers: [
         {
-            name: 'pre',
-            active: false,
-        },
-        {
-            name: 'post',
-            active: false,
+            name: 'base',
+            active: true,
         },
     ],
-    sets: (() => OPTIONS.setNames.map(setName => ({name: setName, active: false})))(),
+    sets: [],
     nodes: [],
 };
 
@@ -100,9 +96,9 @@ export default class ReactViz extends Component {
 
         if (gmeClient) {
             content = (
-                <DcryppsViz gmeClient={this.props.gmeClient} options={OPTIONS}>
+                <HierarchicalModelEditorViz gmeClient={this.props.gmeClient} options={OPTIONS}>
                     <GraphEditor validFilters={FILTERS}/>
-                </DcryppsViz>
+                </HierarchicalModelEditorViz>
             );
         }
 
