@@ -1,4 +1,16 @@
 {
-  "components": {},
-  "dependencies": {}
+  "components": {
+    "visualizers": {
+      "HierarchicalModelEditor": {
+        "src": "panels/HierarchicalModelEditor/HierarchicalModelEditorPanel",
+        "title": "HierarchicalModelEditor",
+        "panel": "src/visualizers/panels/HierarchicalModelEditor",
+        "secondary": false,
+        "widget": "src/visualizers/widgets/HierarchicalModelEditor"
+      }
+    }
+  },
+  "dependencies": {
+    "visualizers": {}
+  }
 }

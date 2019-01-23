@@ -1,0 +1,8 @@
+[
+  {
+    "id": "HierarchicalModelEditor",
+    "title": "HierarchicalModelEditor",
+    "panel": "panels/HierarchicalModelEditor/HierarchicalModelEditorPanel",
+    "DEBUG_ONLY": false
+  }
+]
