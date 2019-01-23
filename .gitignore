@@ -32,3 +32,10 @@ build/Release
 node_modules
 tmp/
 blob-local-storage/
+
+# Bundled webpack files
+src/visualizers/**/*.bundle.js
+src/visualizers/**/*.bundle.css
+
+# Source maps
+src/visualizers/**/*.map

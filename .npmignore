@@ -1,0 +1,6 @@
+# Bundled webpack files
+!src/visualizers/**/*.bundle.js
+!src/visualizers/**/*.bundle.css
+
+# Source maps
+!src/visualizers/**/*.map

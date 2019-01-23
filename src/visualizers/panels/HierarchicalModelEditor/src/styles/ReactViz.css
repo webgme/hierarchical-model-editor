@@ -1,0 +1,21 @@
+/**
+ * DISTRIBUTION STATEMENT C: U.S. Government agencies and their contractors.
+ * Other requests shall be referred to DARPA’s Public Release Center via email at prc@darpa.mil.
+ * @author pmeijer / https://github.com/pmeijer
+ */
+.rotate-45 {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.rotate-90 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+
+}
