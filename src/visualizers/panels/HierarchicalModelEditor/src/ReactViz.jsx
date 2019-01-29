@@ -11,11 +11,12 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Provider} from 'react-redux';
 import {createStore} from 'redux';
+import GraphEditor from 'webgme-react-components/src/components/GraphEditor';
 
 import reducers from './containers/reducers';
 import {setActiveNode, setActiveSelection, setIsActivePanel, setReadOnly, setPanelSize} from './containers/actions';
 import HierarchicalModelEditorViz from './containers/HierarchicalModelEditor';
-import GraphEditor from './components/GraphEditor';
+
 import CONSTANTS from '../../../../common/CONSTANTS';
 
 const OPTIONS = {

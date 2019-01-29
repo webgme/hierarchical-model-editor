@@ -4,9 +4,9 @@
  * @author pmeijer / https://github.com/pmeijer
  */
 import {connect} from 'react-redux';
-
+import SubTreeWatcher from 'webgme-react-components/src/components/SubTreeWatcher';
 import {setActiveNode, setActiveSelection} from './actions';
-import SubTree from '../gme/SubTree';
+
 
 const mapStateToProps = state => ({
     activeNode: state.activeNode,
@@ -27,4 +27,4 @@ const mapDispatchToProps = dispatch => ({
     },
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SubTree);
+export default connect(mapStateToProps, mapDispatchToProps)(SubTreeWatcher);

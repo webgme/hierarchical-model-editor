@@ -21,9 +21,6 @@
     "babel-loader": "^8.0.5",
     "babel-register": "^6.26.0",
     "css-loader": "^0.28.11",
-    "cytoscape": "3.2.12",
-    "cytoscape-cose-bilkent": "^4.0.0",
-    "cytoscape-dagre": "^2.2.2",
     "eslint": "^4.18.2",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.14.0",
@@ -38,9 +35,12 @@
     "react-redux": "^5.1.1",
     "redux": "^3.7.2",
     "webgme": "^2.21.3",
+    "webgme-react-components": "https://git.isis.vanderbilt.edu/patrik85/react-components/-/archive/10877b238617f267532091dc41ffb8d7e36caaf0/react-components-master.tar",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "wrapper-webpack-plugin": "^1.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "webgme-react-components": "0.0.1"
+  }
 }

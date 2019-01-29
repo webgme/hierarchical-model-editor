@@ -27,7 +27,10 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                exclude: /node_modules/,
+                include: [
+                    path.resolve(__dirname, 'src'),
+                    /react-components/,
+                ],
                 use: [
                     'babel-loader',
                 ],
