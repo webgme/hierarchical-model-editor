@@ -59,12 +59,6 @@ export default class ReactCytoscape extends Component {
                 },
             },
             {
-                selector: 'edge',
-                css: {
-                    'target-arrow-shape': 'triangle',
-                },
-            },
-            {
                 selector: ':selected',
                 css: {
                     'background-color': 'black',

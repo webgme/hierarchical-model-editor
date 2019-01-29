@@ -150,7 +150,7 @@ export default class SubTree extends Component {
                 updateDesc[nodeId].$set.pointers[name] = nodeObj.getPointerId(name);
             });
 
-            (options.setNames || nodeObj.getSetNames()).forEach((name) => {
+            (options.setNames || nodeObj.getValidSetNames()).forEach((name) => {
                 updateDesc[nodeId].$set.sets[name] = getMembers(nodeObj, name);
             });
         });
@@ -181,7 +181,7 @@ export default class SubTree extends Component {
                 updateDesc[nodeId].pointers[name] = {$set: nodeObj.getPointerId(name)};
             });
 
-            (options.setNames || nodeObj.getSetNames()).forEach((name) => {
+            (options.setNames || nodeObj.getValidSetNames()).forEach((name) => {
                 updateDesc[nodeId].sets[name] = {$set: getMembers(nodeObj, name)};
             });
         });

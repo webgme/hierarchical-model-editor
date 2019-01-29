@@ -47,110 +47,32 @@ const DEFAULT_STYLES = [
             'background-height': '80%',
         },
     },
-    // {
-    //     selector: 'node[attackModelNode]',
-    //     style: {
-    //         content: 'data(label)',
-    //         // http://js.cytoscape.org/#style/background-image
-    //         'background-width': '80%',
-    //         'background-height': '80%',
-    //         shape: 'roundrectangle',
-    //         'background-color': 'white',
-    //         'border-style': 'solid',
-    //         'border-opacity': '1',
-    //         'border-width': '3px',
-    //         'text-wrap': 'wrap',
-    //         'text-valign': 'center',
-    //         'text-halign': 'center',
-    //         width: '320px',
-    //         height: '100px',
-    //         'font-family': 'monospace',
-    //     },
-    // },
-    // {
-    //     selector: 'node[metaType="goal"]',
-    //     style: {
-    //         'border-color': 'blue',
-    //     },
-    // },
-    // {
-    //     selector: 'node[metaType="action"]',
-    //     style: {
-    //         'border-color': 'red',
-    //     },
-    // },
-    // {
-    //     selector: 'node[metaType="plan"]',
-    //     style: {
-    //         'border-color': 'green',
-    //         width: '200px',
-    //     },
-    // },
-    // {
-    //     selector: 'node[metaType="or"]',
-    //     style: {
-    //         label: 'or',
-    //         width: '30px',
-    //         height: '30px',
-    //         'border-color': 'grey',
-    //     },
-    // },
-    // {
-    //     selector: `.${DCRYPPS_CONSTANTS.SETS.networkNodes}-edge`,
-    //     style: {
-    //         'line-style': 'dashed',
-    //     },
-    // },
     {
-        selector: '.edge-with-arrow',
+        selector: 'edge.pointer',
         style: {
-            'target-arrow-fill': 'filled',
-            'target-arrow-color': 'grey',
+            content: 'data(label)',
+            'line-color': 'rgb(0,0,255)',
+            'target-arrow-color': 'rgb(0,0,255)',
+            'target-arrow-shape': 'open',
         },
     },
-    // {
-    //     selector: `.${DCRYPPS_CONSTANTS.SETS.sequence}-edge`,
-    //     style: {
-    //         'mid-target-arrow-shape': 'vee',
-    //         label: 'data(label)',
-    //         color: 'green',
-    //         'font-size': '12px',
-    //         'font-weight': 'bold',
-    //     },
-    // },
-    // {
-    //     selector: `.${DCRYPPS_CONSTANTS.SETS.parallel}-edge`,
-    //     style: {
-    //         'mid-target-arrow-shape': 'triangle-tee',
-    //     },
-    // },
-    // {
-    //     selector: `.${DCRYPPS_CONSTANTS.SETS.choose}-edge`,
-    //     style: {
-    //         'mid-target-arrow-shape': 'triangle',
-    //         'mid-source-arrow-shape': 'circle',
-    //     },
-    // },
     {
-        selector: '.base-edge',
+        selector: 'edge.set-member',
+        style: {
+            content: 'data(label)',
+            'line-color': 'rgb(255,0,255)',
+        },
+    },
+    {
+        selector: 'edge.base-pointer',
         style: {
             width: 1,
-            'line-color': 'rgb(220,20,60)',
+            'line-color': 'rgb(255,0,0)',
             'target-arrow-fill': 'hollow',
-            'target-arrow-color': 'rgb(220,20,60)',
+            'target-arrow-color': 'rgb(255,0,0)',
             'target-arrow-shape': 'triangle',
         },
     },
-    // {
-    //     selector: '.post-edge',
-    //     style: {
-    //         width: 1,
-    //         'line-color': 'rgb(85, 123, 139)',
-    //         'mid-target-arrow-fill': 'filled',
-    //         'mid-target-arrow-color': 'rgb(85, 123, 139)',
-    //         'mid-target-arrow-shape': 'triangle',
-    //     },
-    // },
     {
         selector: 'node[hasChildren].in-active-selection',
         style: {
@@ -352,6 +274,7 @@ export default class GraphEditor extends Component {
                         id,
                         source: childData.pointers.src,
                         target: childData.pointers.dst,
+                        label: childData.attributes.name,
                     },
                     classes: `${activeSelection.includes(id) ? 'in-active-selection ' : ''}gme-connection`,
                 });
@@ -403,11 +326,10 @@ export default class GraphEditor extends Component {
                                 id: edgeId,
                                 source: id,
                                 target: setMemberData.id,
-                                setName,
+                                label: setName,
                                 memberAttrs: setMemberData.memberAttrs,
                             },
-                            classes: `edge-with-arrow ${setName}-edge 
-${activeSelection.includes(edgeId) ? 'in-active-selection' : ''}`,
+                            classes: `set-member ${activeSelection.includes(edgeId) ? 'in-active-selection' : ''}`,
                         };
 
                         if (setMemberData.label !== null) {
@@ -429,16 +351,17 @@ ${activeSelection.includes(edgeId) ? 'in-active-selection' : ''}`,
                             id: edgeId,
                             source: id,
                             target: childData.pointers[pName],
-                            pointerName: pName,
+                            label: pName,
                         },
-                        classes: `${pName}-edge ${activeSelection.includes(edgeId) ? 'in-active-selection' : ''}`,
+                        classes: `${pName === 'base' ? 'base-pointer' : 'pointer'}\
+${activeSelection.includes(edgeId) ? ' in-active-selection' : ''}`,
                     };
 
                     result.elements.edges.push(edgeData);
                 });
 
                 // Use the images defined for the node.
-                if (childData.registries.SVGIcon) {
+                if (childData.registries.SVGIcon && childData.registries.SVGIcon.indexOf('<') === -1) {
                     result.style.push({
                         selector: `node[id = "${id}"]`,
                         style: {
