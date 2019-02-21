@@ -33,7 +33,7 @@
     "react-redux": "^5.1.1",
     "redux": "^3.7.2",
     "webgme": "^2.21.3",
-    "webgme-react-components": "0.0.8",
+    "webgme-react-components": "0.0.9",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "wrapper-webpack-plugin": "^1.0.0"

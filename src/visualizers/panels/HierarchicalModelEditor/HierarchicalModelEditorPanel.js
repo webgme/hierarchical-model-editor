@@ -123,35 +123,35 @@ define([
     };
 
     HierarchicalModelEditorPanel.prototype.afterAppend = function afterAppend() {
-        const self = this;
+        // const self = this;
         HierarchicalModelEditorViz(this.appId);
-        DropTarget.makeDroppable(this.$el, {
-            drop: function drop(event, dragInfo) {
-                // console.log(event, dragInfo);
-                if (typeof self.activeNode === 'string' &&
-                    dragInfo &&
-                    dragInfo.DRAG_EFFECTS &&
-                    dragInfo.DRAG_EFFECTS[0] === 'DRAG_CREATE_INSTANCE' &&
-                    dragInfo.DRAG_ITEMS &&
-                    dragInfo.DRAG_ITEMS.length === 1) {
-                    try {
-                        self.client.createNode({
-                            baseId: dragInfo.DRAG_ITEMS[0],
-                            parentId: self.activeNode,
-                        }, {
-                            registry: {
-                                position: {
-                                    x: event.offsetX,
-                                    y: event.offsetY,
-                                },
-                            },
-                        });
-                    } catch (e) {
-                        self.logger.error(e);
-                    }
-                }
-            },
-        });
+        // DropTarget.makeDroppable(this.$el, {
+        //     drop: function drop(event, dragInfo) {
+        //         // console.log(event, dragInfo);
+        //         if (typeof self.activeNode === 'string' &&
+        //             dragInfo &&
+        //             dragInfo.DRAG_EFFECTS &&
+        //             dragInfo.DRAG_EFFECTS[0] === 'DRAG_CREATE_INSTANCE' &&
+        //             dragInfo.DRAG_ITEMS &&
+        //             dragInfo.DRAG_ITEMS.length === 1) {
+        //             try {
+        //                 self.client.createNode({
+        //                     baseId: dragInfo.DRAG_ITEMS[0],
+        //                     parentId: self.activeNode,
+        //                 }, {
+        //                     registry: {
+        //                         position: {
+        //                             x: event.offsetX,
+        //                             y: event.offsetY,
+        //                         },
+        //                     },
+        //                 });
+        //             } catch (e) {
+        //                 self.logger.error(e);
+        //             }
+        //         }
+        //     },
+        // });
     };
 
     HierarchicalModelEditorPanel.prototype.onReadOnlyChanged = function onReadOnlyChanged(isReadOnly) {
@@ -208,6 +208,10 @@ define([
     HierarchicalModelEditorPanel.prototype.onDeactivate = function onDeactivate() {
         this.detachClientEventListeners();
         this.stateMediator.onDeactivate();
+    };
+
+    HierarchicalModelEditorPanel.prototype.getValidTypesInfo = function getValidTypesInfo() {
+        return {};
     };
 
     return HierarchicalModelEditorPanel;
