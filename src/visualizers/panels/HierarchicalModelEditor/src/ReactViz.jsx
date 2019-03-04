@@ -21,9 +21,9 @@ import CONSTANTS from '../../../../common/CONSTANTS';
 
 const OPTIONS = {
     // Array of attributes to extract
-    // attributeNames: ['name', 'label'],
+    // attributeNames: ['name'],
     // Array of registries to extract
-    registryNames: ['position', CONSTANTS.CYTOSCAPE_POS_REG_KEY, 'SVGIcon'],
+    registryNames: ['position', CONSTANTS.CYTOSCAPE_POS_REG_KEY, 'SVGIcon', 'color'],
     // Array of pointer names to extract - default is all defined pointers (nodeObj.getSetNames).
     // pointerNames: ['src', 'dst'],
     // Array of set names to extract as edges - default is all defined sets (nodeObj.getSetNames).
@@ -44,6 +44,11 @@ const FILTERS = {
     sets: [],
     nodes: [],
 };
+
+const EXTRA_STYLES = [
+
+];
+
 
 export default class ReactViz extends Component {
     static propTypes = {
@@ -98,7 +103,7 @@ export default class ReactViz extends Component {
         if (gmeClient) {
             content = (
                 <HierarchicalModelEditorViz gmeClient={this.props.gmeClient} options={OPTIONS}>
-                    <GraphEditor validFilters={FILTERS}/>
+                    <GraphEditor validFilters={FILTERS} extraStyles={EXTRA_STYLES}/>
                 </HierarchicalModelEditorViz>
             );
         }

@@ -1,9 +1,6 @@
-# hierarchical-model-editor
-## Installation
-First, install the hierarchical-model-editor following:
-- [NodeJS](https://nodejs.org/en/) (v4.x.x recommended)
-- [MongoDB](https://www.mongodb.com/)
+# Hierarchical-Model-Editor
+The visualizer can be used as is. 
 
-Second, start mongodb locally by running the `mongod` executable in your mongodb installation (you may need to create a `data` directory or set `--dbpath`).
+- Import using the webgme-cli tool `webgme import viz HierarchicalModelEditor hierarchical-model-editor`
+- Register the visualizer at nodes where it should be available.
 
-Then, run `webgme start` from the project root to start . Finally, navigate to `http://localhost:8888` to start using hierarchical-model-editor!

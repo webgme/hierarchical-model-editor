@@ -4,9 +4,10 @@
     "start": "node app.js",
     "test": "node ./node_modules/mocha/bin/mocha --recursive test",
     "build": "node ./node_modules/webpack/bin/webpack.js",
-    "webpack": "node ./node_modules/webpack/bin/webpack.js"
+    "webpack": "node ./node_modules/webpack/bin/webpack.js",
+    "prepublishOnly": "npm run webpack"
   },
-  "version": "0.0.1",
+  "version": "0.0.0",
   "peerDependencies": {
     "webgme": "^2.0.0"
   },
@@ -32,8 +33,8 @@
     "react-dom": "^16.7.0",
     "react-redux": "^5.1.1",
     "redux": "^3.7.2",
-    "webgme": "^2.21.3",
-    "webgme-react-components": "0.0.9",
+    "webgme": "^2.36.0",
+    "webgme-react-components": "0.1.1",
     "webpack": "^4.28.4",
     "webpack-cli": "^3.2.1",
     "wrapper-webpack-plugin": "^1.0.0"
