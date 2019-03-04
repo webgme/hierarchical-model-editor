@@ -1,5 +1,17 @@
 {
-  "name": "webgme-hierarchical-model-editor",
+  "name": "hierarchical-model-editor",
+  "description": "CytoscapeJS based Visualizer for viewing multiple levels in the containment hierarchy.",
+  "author": {
+    "name": "WebGME Development Team",
+    "url": "https://webgme.org"
+  },
+  "keywords": [
+    "webgme",
+    "webgme-component",
+    "cytoscape",
+    "visualizer"
+  ],
+  "license": "MIT",
   "scripts": {
     "start": "node app.js",
     "test": "node ./node_modules/mocha/bin/mocha --recursive test",
