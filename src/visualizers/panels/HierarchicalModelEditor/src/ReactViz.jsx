@@ -31,7 +31,7 @@ const OPTIONS = {
     // Mapping from set name to set attribute name - is label: true it will be used as label for those edges.
     setMemberAttributes: {},
     // The depth of the territory, i.e. the number of levels of containment-hierarchy to display.
-    depth: 10,
+    depth: 9999, // FIXME: -1 should work.
 };
 
 const FILTERS = {
