@@ -2,6 +2,18 @@
 This is a domain-agnostic model editor for viewing and editing models through 
 multiple layers of containment. 
 
+## Try it out from here
+
+- Make sure you have [docker/docker-compose](https://docs.docker.com/compose/install/) installed
+- Clone this repository to your local machine
+- `cd hierarchical-model-editor`
+- `docker-compose up`
+- Goto [localhost:8888](http://localhost:8888) using e.g. Chrome
+
+## Add to your WebGME repo
+Make sure you've setup your repository using [webgme-cli](https://webgme.readthedocs.io/en/latest/getting_started/creating_a_repository.html): 
+
+
 - Import using the webgme-cli tool `webgme import viz HierarchicalModelEditor hierarchical-model-editor`
 - Register the visualizer at nodes where it should be available.
 

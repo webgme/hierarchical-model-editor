@@ -7,10 +7,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.isis.vanderbilt.edu/patrik85/hierarchical-model-editor.git"
+    "url": "https://github.com/webgme/hierarchical-model-editor.git"
   },
   "bugs": {
-    "url": "https://git.isis.vanderbilt.edu/patrik85/hierarchical-model-editor/issues"
+    "url": "https://github.com/webgme/hierarchical-model-editor/issues"
   },
   "keywords": [
     "webgme",

@@ -1,0 +1,33 @@
+# This file is associated with config/config.docker.js
+#
+# On windows, make sure to set the env var COMPOSE_CONVERT_WINDOWS_PATHS=1 before running
+# C:\..\> set COMPOSE_CONVERT_WINDOWS_PATHS=1
+# C:\..\> docker-compose -p hierarchical-model-editor up -d
+#
+# Run these commands with cwd where this file is.
+# To build and launch for the first time:
+#   $ docker-compose up -d
+version: '3'
+networks:
+  database:
+    driver: bridge
+services:
+  webgme-server:
+    build:
+      context: .
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=docker
+    networks:
+      - database
+    ports:
+      # Change LHS to map to different port on the host.
+      - 8888:8888
+  mongo:
+    image: mongo
+    ## Uncomment to expose mongo-port on host
+    # ports:
+    #   - 27017:27017
+    networks:
+      - database
