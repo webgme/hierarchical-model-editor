@@ -5,6 +5,13 @@
     "name": "WebGME Development Team",
     "url": "https://webgme.org"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://git.isis.vanderbilt.edu/patrik85/hierarchical-model-editor.git"
+  },
+  "bugs": {
+    "url": "https://git.isis.vanderbilt.edu/patrik85/hierarchical-model-editor/issues"
+  },
   "keywords": [
     "webgme",
     "webgme-component",
