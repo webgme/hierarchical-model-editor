@@ -33,9 +33,9 @@ node_modules
 tmp/
 blob-local-storage/
 
-# Bundled webpack files
-src/visualizers/**/*.bundle.js
-src/visualizers/**/*.bundle.css
+# Bundled webpack files - it makes smoother installation if we keep it here
+# src/visualizers/**/*.bundle.js
+# src/visualizers/**/*.bundle.css
 
 # Source maps
 src/visualizers/**/*.map
