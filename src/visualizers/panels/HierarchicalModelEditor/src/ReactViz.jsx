@@ -55,6 +55,7 @@ export default class ReactViz extends Component {
         gmeClient: PropTypes.object.isRequired,
         stateMediator: PropTypes.object.isRequired,
         initialState: PropTypes.object.isRequired,
+        extraStyles: PropTypes.array,
     };
 
     constructor(props) {
@@ -97,13 +98,13 @@ export default class ReactViz extends Component {
     }
 
     render() {
-        const {gmeClient} = this.props;
+        const {gmeClient, extraStyles} = this.props;
         let content = <div/>;
 
         if (gmeClient) {
             content = (
                 <HierarchicalModelEditorViz gmeClient={this.props.gmeClient} options={OPTIONS}>
-                    <GraphEditor validFilters={FILTERS} extraStyles={EXTRA_STYLES}/>
+                    <GraphEditor validFilters={FILTERS} extraStyles={extraStyles || EXTRA_STYLES}/>
                 </HierarchicalModelEditorViz>
             );
         }

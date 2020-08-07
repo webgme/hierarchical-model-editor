@@ -103613,7 +103613,9 @@ function (_Component) {
   _createClass(ReactViz, [{
     key: "render",
     value: function render() {
-      var gmeClient = this.props.gmeClient;
+      var _this$props = this.props,
+          gmeClient = _this$props.gmeClient,
+          extraStyles = _this$props.extraStyles;
       var content = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
 
       if (gmeClient) {
@@ -103622,7 +103624,7 @@ function (_Component) {
           options: OPTIONS
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(webgme_react_components_src_components_GraphEditor__WEBPACK_IMPORTED_MODULE_4__["default"], {
           validFilters: FILTERS,
-          extraStyles: EXTRA_STYLES
+          extraStyles: extraStyles || EXTRA_STYLES
         }));
       }
 
@@ -103638,7 +103640,8 @@ function (_Component) {
 _defineProperty(ReactViz, "propTypes", {
   gmeClient: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired,
   stateMediator: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired,
-  initialState: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired
+  initialState: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object.isRequired,
+  extraStyles: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.array
 });
 
 
@@ -103867,7 +103870,8 @@ window.WebGMEGlobal.WebGMEReactPanels[VISUALIZER_INSTANCE_ID].stateMediator.onDe
 react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ReactViz__WEBPACK_IMPORTED_MODULE_2__["default"], {
   gmeClient: window.WebGMEGlobal.WebGMEReactPanels[VISUALIZER_INSTANCE_ID].client,
   stateMediator: window.WebGMEGlobal.WebGMEReactPanels[VISUALIZER_INSTANCE_ID].stateMediator,
-  initialState: window.WebGMEGlobal.WebGMEReactPanels[VISUALIZER_INSTANCE_ID].initialState
+  initialState: window.WebGMEGlobal.WebGMEReactPanels[VISUALIZER_INSTANCE_ID].initialState,
+  extraStyles: window.WebGMEGlobal.WebGMEReactPanels[VISUALIZER_INSTANCE_ID].extraStyles
 }), document.getElementById(VISUALIZER_INSTANCE_ID));
 
 /***/ }),

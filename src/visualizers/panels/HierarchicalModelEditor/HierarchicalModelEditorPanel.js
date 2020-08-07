@@ -13,6 +13,7 @@ define([
     'js/PanelManager/IActivePanel',
     'common/util/guid',
     'js/DragDrop/DropTarget',
+    'js/Utils/ComponentSettings',
     './HierarchicalModelEditor.bundle',
     'css!./HierarchicalModelEditor.bundle.css',
 ], function (
@@ -21,6 +22,7 @@ define([
     IActivePanel,
     guid,
     DropTarget,
+    ComponentSettings,
     HierarchicalModelEditorViz,
 ) {
     'use strict';
@@ -42,6 +44,9 @@ define([
 
         this.appId = `react-viz-id-${guid()}`;
 
+        this._config = HierarchicalModelEditorPanel.getDefaultConfig();
+        ComponentSettings.resolveWithWebGMEGlobal(this._config, HierarchicalModelEditorPanel.getComponentId());
+        
         // initialize UI
         this.initialize();
 
@@ -119,6 +124,7 @@ define([
             initialized: false,
             initialState,
             stateMediator: this.stateMediator,
+            extraStyles: this._config,
         };
     };
 
@@ -212,6 +218,14 @@ define([
 
     HierarchicalModelEditorPanel.prototype.getValidTypesInfo = function getValidTypesInfo() {
         return {};
+    };
+
+    HierarchicalModelEditorPanel.getDefaultConfig = function () {
+        return [];
+    };
+
+    HierarchicalModelEditorPanel.getComponentId = function () {
+        return 'HierarchicalModelEditorPanel';
     };
 
     return HierarchicalModelEditorPanel;
